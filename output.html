@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Next Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+  
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+  
+    div {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  
+    p {
+      margin: 0;
+      margin-bottom: 10px;
+    }
+  
+    span {
+      font-weight: bold;
+    }
+  
+    img {
+      margin-top: 20px;
+      max-width: 100%;
+      height: auto; /* Maintain aspect ratio */
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-height: 300px; /* Set maximum height */
+    }
+  </style>
+</head>
+<body>
+
+  <h1>USER DETAILS</h1>
+
+  <div>
+    <p>Name: <span id="storedName"></span></p>
+    <p>Location: <span id="storedLocation"></span></p>
+    <p>Job Description: <span id="storedJobDescription"></span></p>
+    <p>Phone Number: <span id="storedPhoneNumber"></span></p>
+    <p>Salary: <span id="storedSalary"></span></p>
+    <p>Job Timings: <span id="storedJobTimings"></span></p>
+  </div>
+
+  <!-- Display uploaded image -->
+  <img src="https://content.jdmagicbox.com/comp/sonepat/q9/9999p1264.1264.110220101810.n4q9/catalogue/deepak-kirana-store-gohana-road-sonepat-general-stores-95ljd68ege.jpg" alt="Uploaded Image" id="uploadedImage">
+
+  <script>
+    // Retrieve details from local storage and display them
+    document.getElementById('storedName').innerText = localStorage.getItem('name');
+    document.getElementById('storedLocation').innerText = localStorage.getItem('location');
+    document.getElementById('storedJobDescription').innerText = localStorage.getItem('jobDescription');
+    document.getElementById('storedPhoneNumber').innerText = localStorage.getItem('phoneNumber');
+    document.getElementById('storedSalary').innerText = localStorage.getItem('salary');
+    document.getElementById('storedJobTimings').innerText = localStorage.getItem('jobTimings');
+
+    // Retrieve image from local storage and display it
+    var image = localStorage.getItem('image');
+    document.getElementById('uploadedImage').src = image;
+  </script>
+
+</body>
+</html>

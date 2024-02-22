@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    .login-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: rgb(227, 218, 218);
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    /* Customize the file input styling */
+    #imageUploadLabel {
+      background-color: #4caf50;
+      color: rgb(231, 225, 225);
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    #imageUploadLabel:hover {
+      background-color: #45a049;
+    }
+
+    /* Add new styles for the upload button */
+    #uploadButton {
+      background-color: #4caf50;
+      color: rgb(231, 225, 225);
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    #uploadButton:hover {
+      background-color: #45a049;
+    }
+
+    /* Hide the original file input */
+    #imageUpload {
+      display: none;
+    }
+  </style>
+  <title>Login Page</title>
+</head>
+<body>
+
+  <div class="login-container">
+    <h1>POSTING DETAILS</h1>
+
+    <div class="input-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+    </div>
+
+    <div class="input-group">
+      <label for="location">Location:</label>
+      <input type="text" id="location" placeholder="City, State" required>
+    </div>
+
+    <div class="input-group">
+      <label for="jobDescription">Job Description:</label>
+      <input type="text" id="jobDescription" rows="4" placeholder="Enter your job description" required>
+    </div>
+    
+    <div class="input-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="tel" id="phoneNumber" placeholder="Enter your phone number" required>
+    </div>
+
+    <div class="input-group">
+      <label for="salary">Salary:</label>
+      <input type="text" id="salary" placeholder="Enter your salary" required>
+    </div>
+
+    <div class="input-group">
+      <label for="jobTimings">Job Timings:</label>
+      <input type="text" id="jobTimings" placeholder="Enter your job timings eg:9:00am - 10:00pm">
+    </div>
+
+    <div class="input-group">
+      <label for="imageUpload">Upload Shop Image:</label>
+      <input type="file" id="imageUpload" accept="image/*">
+      <label id="uploadButton" for="imageUpload">Choose File</label>
+    </div>
+
+    <button onclick="submitForm()">Submit</button>
+  </div>
+
+  <script>
+    function submitForm() {
+      // Get values from input fields
+      var name = document.getElementById('name').value;
+      var location = document.getElementById('location').value;
+      var jobDescription = document.getElementById('jobDescription').value;
+      var phoneNumber = document.getElementById('phoneNumber').value;
+      var salary = document.getElementById('salary').value;
+      var jobTimings = document.getElementById('jobTimings').value;
+
+      // Get the uploaded image file
+      var imageUpload = document.getElementById('imageUpload');
+      var uploadedImage = imageUpload.files[0];
+
+      // Convert image to Base64 string
+      var reader = new FileReader();
+      reader.onload = function(event) {
+        var base64String = event.target.result;
+        
+        // Store details in local storage
+        localStorage.setItem('name', name);
+        localStorage.setItem('location', location);
+        localStorage.setItem('jobDescription', jobDescription);
+        localStorage.setItem('phoneNumber', phoneNumber);
+        localStorage.setItem('salary', salary);
+        localStorage.setItem('jobTimings', jobTimings);
+        localStorage.setItem('image', base64String);
+
+        // Redirect to the next page
+        window.location.href = 'output.html';
+      };
+      reader.readAsDataURL(uploadedImage);
+    }
+
+    // Add event listener to the styled upload button
+    document.getElementById('uploadButton').addEventListener('click', function() {
+      document.getElementById('imageUpload').click();
+    });
+  </script>
+
+</body>
+</html>

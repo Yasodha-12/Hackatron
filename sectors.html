@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button with Images</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSscx_AF2ehf4viGLi2bzDg-t1mWCPcLe9K6t64DyYACpIYkx82umVfn68mObh6dKMgrFw&usqp=CAU');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: 100% 100% ;
+      color:black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .button {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px;
+      background-image:linear-gradient(skyblue,violet,purple);
+      color: #fff;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-size: large;
+      font-style: italic;
+    }
+
+    .button:hover {
+      background-color: #2980b9;
+    }
+
+    .button img {
+      width: 200px;
+      height: 200px;
+      margin :20px;
+    }
+    h1{
+        color:white;
+     
+     border-radius: 20px;
+     width:100%;
+     height:70px;
+     padding-top: 30px;
+    }
+    
+    .nav{
+      background-color: rgba(229, 222, 222, 0.338) ;
+      overflow: hidden;
+      width: 100%;
+    }
+    .nav a{
+      float: left;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .nav a:hover {
+  background-color: #ddd;
+  color: black;
+  
+}
+
+
+.nav a.active {
+  background-color: purple;
+  color: white;
+}
+  </style>
+</head>
+<body>
+    <h1 align="center"> Job Seeker</h1>
+    <br>
+
+    <div class="nav">
+    
+        <a href="about.html">About</a>
+        <a href="contact.html">Help</a>
+        <a href="home.html">LogOut</a>
+        </div>
+  <br>
+  <div class="button-container">
+   <a href="retail.html"><button class="button" onclick="handleButtonClick(1)">
+      <img src="https://www.ikonmarket.com/assets/images/market-insights/retail/retail-industry-india.jpg" alt="Image 1">
+     Retail Sector
+    </button></a> 
+
+    <button class="button" onclick="handleButtonClick(2)">
+     <a href="service.html"><img src="https://timestech.in/wp-content/uploads/2022/07/mobile-phone-repair.jpg" alt="Image 2"></a>
+      Service Sector
+    </button> 
+
+    <button class="button" onclick="handleButtonClick(3)"><a href="food.html">
+      <img src="https://www.shutterstock.com/image-photo/young-man-cooking-lunch-home-600nw-1897472008.jpg" alt="Image 3"></a>
+      Food Sector
+    </button>
+
+    <button class="button" onclick="handleButtonClick(4)">
+      <img src="https://hellolaundry.co.uk/wp-content/uploads/2021/03/D66UE7izHhSkUuGM08ura3DhkY9MoU8UKQDRfMaE1.jpeg" alt="Image 4">
+     Tailoring and Alterations
+    </button>
+  </div>
+
+  <script>
+    function handleButtonClick(buttonNumber) {
+      // You can add functionality for each button click here
+      console.log('Button ' + buttonNumber + ' clicked!');
+    }
+  </script>
+
+</body>
+</html>

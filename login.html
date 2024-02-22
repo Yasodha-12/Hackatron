@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page with Phone Verification</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-image: linear-gradient(to right, rgb(106, 106, 253) 0%, pink 55%);
+    }
+    header {
+      text-align: center;
+      width:100%;
+    }
+    h1 {
+      color: black;
+      background-color: rgb(250, 248, 248, 0.338);
+      border-radius: 20px;
+      margin-top: -150px;
+      height: 70px;
+      padding-top: 3%;
+    }
+    #login-container {
+      background-color: rgb(250, 248, 248, 0.338);
+      padding: 50px;
+      border-radius: 8px;
+      box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      width: 300px;
+      text-align: center;
+      margin-top: 20px; /* Adjust the margin as needed */
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 align="center">JOB SEEKER</h1>
+  </header>
+  <br>
+  <br>
+  <div id="login-container">
+    <h2>Login</h2>
+    <input type="tel" id="phone" placeholder="Enter your phone number" maxlength="10">
+    <button onclick="sendVerificationCode()">Send Verification Code</button>
+  </div>
+
+  <script>
+    function sendVerificationCode() {
+      const phoneNumber = document.getElementById('phone').value;
+      if (/^\d{10}$/.test(phoneNumber)) {
+        const verificationCode = Math.floor(1000 + Math.random() * 9000);
+        sessionStorage.setItem('phoneNumber', phoneNumber);
+        sessionStorage.setItem('verificationCode', verificationCode);
+        alert(`Verification code sent: ${verificationCode}`);
+        window.location.href = 'otp.html';
+      } else {
+        alert('Please enter a valid 10-digit phone number.');
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: linear-gradient(to right, rgb(106, 106, 253) 0%, pink 55%);
+        }
+
+        h1{
+        color:black;
+     background-color: pink;
+     border-radius: 20px;
+     width:100%;
+     height:70px;
+     padding-top: 30px;
+    }
+        .container {
+            
+            background-color:rgb(250, 248, 248, 0.338);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            cursor: pointer;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result, #error {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        #result {
+            color: green;
+        }
+
+        #error {
+            color: red;
+        }
+    </style>
+   
+</head>
+<body>
+    
+
+    <div class="container">
+        <label for="nameInput">Name:</label>
+        <input type="text" id="nameInput" placeholder="Enter your name">
+
+        <label for="ageInput">Age:</label>
+        <input type="number" id="ageInput" placeholder="Enter your age">
+
+        <label for="genderInput">Gender:</label>
+        <select id="genderInput">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="aadharInput">Aadhar Number:</label>
+        <input type="text" id="aadharInput" placeholder="Enter Aadhar Number">
+
+        <button onclick="validateUserInfo()">Join</button>
+        
+        <p id="result"></p>
+        <p id="error"></p>
+    </div>
+
+    <script>
+        function validateUserInfo() {
+            var nameInput = document.getElementById("nameInput").value;
+            var ageInput = document.getElementById("ageInput").value;
+            var genderInput = document.getElementById("genderInput").value;
+            var aadharInput = document.getElementById("aadharInput").value;
+            var resultElement = document.getElementById("result");
+            var errorElement = document.getElementById("error");
+
+            // Check if Aadhar number is a 12-digit numeric value
+            if (/^[1-9][0-9]{11}$/.test(aadharInput)) {
+                // If validation is successful, redirect to another file
+                window.location.href = 'sectors.html';
+            } else {
+                errorElement.innerHTML = 'Invalid Aadhar number. Please check and try again.';
+                resultElement.innerHTML = '';
+            }
+        }
+    </script>
+    <script src="form.js"></script>
+</body>
+</html>
